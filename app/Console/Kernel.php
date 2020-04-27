@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\User;
 
 class Kernel extends ConsoleKernel
 {
@@ -12,9 +13,9 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [
-        //
-    ];
+       protected $commands = [
+//           \App\Console\Commands\Inspire::class,
+       ];
 
     /**
      * Define the application's command schedule.
@@ -24,8 +25,14 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        //mail('mail@yandex.ru', 'start@ff.com', 'Hello');
+        $schedule->call(function () {
+            \DB::table('users')->insert([
+                ['name' => 'dsfsdfsdf',
+                'email' => rand(1,100000),
+                'password' => '111']
+            ]);
+        })->everyFiveMinutes();
     }
 
     /**

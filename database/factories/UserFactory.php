@@ -23,6 +23,7 @@ $factory->define(User::class, function (Faker $faker) {
         'email' => $faker->unique()->safeEmail,
         'email_verified_at' => now(),
         'password' => md5('12345'), // password
+        'banned' => true,
         'remember_token' => Str::random(10)
     ];
 });

@@ -8,19 +8,15 @@ use App\User;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
     public function run()
     {
         $firstUser = new User();
         $firstUser->name = 'Dima';
-        $firstUser->email = 'Dima';
+        $firstUser->email = 'dimka@gmail.com';
         $firstUser->email_verified_at = now();
-        $firstUser->password = '$2y$10$uzRpvaN3zJnLlVw5pgjekuH3JRUegP.j/d.0R/zlELVaQW6il2Kvq'; // password
+        $firstUser->password = '$2y$10$/xUbPd3hA2CWzA4P3KhgLurWRvLa8533QDiH/JRx7OztGhRcnEGxq'; // password
         $firstUser->remember_token = '5zEO3O8EmC7CgdyM94rYx8wsuaOoZn7KOXXNMFd9CEqoIkVqNdYfc6RaAoUV';
+        $firstUser->role = 4;
         $firstUser->save();
         $firstId = User::all()->last()->id;
         User::where('id', $firstId)->update(['id' => 1]);
@@ -38,6 +34,7 @@ class DatabaseSeeder extends Seeder
             $fish = new Fish();
             $fish->alias = str_slug($fishNames[$i],'-','en'). '-' . $i;
             $fish->category_id = rand(1, 5);
+            $fish->views = rand(1, 20);
             $fish->save();
             $id = Fish::where('id', '<>', 0)->select('id')->get()->last();
             foreach ($languages as $lang) {
@@ -59,6 +56,7 @@ class DatabaseSeeder extends Seeder
             $lake = new Lake();
             $lake->alias = str_slug($lakeNames[$i],'-','en') . '-' . $i;
             $lake->location_id = rand(1, 5);
+            $lake->views = rand(1, 20);
             $lake->save();
             $id = Lake::where('id', '<>', 0)->select('id')->get()->last();
             foreach ($languages as $lang) {

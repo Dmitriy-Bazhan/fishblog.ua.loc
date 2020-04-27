@@ -2,18 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Fish;
 use Illuminate\Http\Request;
 
 class FishController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $data['path'] = take_path();
+        $data['fishes'] = Fish::withData()->get();
+
+        return view ('site.fishes', $data);
     }
 
     /**

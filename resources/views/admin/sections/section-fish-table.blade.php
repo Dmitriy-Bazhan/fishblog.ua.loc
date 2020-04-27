@@ -30,13 +30,14 @@
                     data-model="{{ $model }}"
                     >
                     <th id="id" data-attribute="id">id</th>
-                    <th id="name" data-attribute="name">name</th>
-                    <th id="alias" data-attribute="alias">alias</th>
-                    <th id="category" data-attribute="category">category</th>
-                    <th>short-description</th>
-                    <th>description</th>
+                    <th id="name" data-attribute="name">Название</th>
+                    <th id="alias" data-attribute="alias">Псевдоним</th>
+                    <th id="category" data-attribute="category">Категория</th>
+                    <th id="short_description">Короткое описание</th>
+                    <th id="full_description">Полное описание</th>
                     <th id="created_at" data-attribute="created_at">Дата создания</th>
                     <th id="updated_at" data-attribute="updated_at">Дата редактирования</th>
+                    <th id="actions">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,16 +45,35 @@
                     @if(isset($fishes[$i]))
                     <tr>
                         <td>{{ $fishes[$i]->id }}</td>
-                        <td>{{ $fishes[$i]->fish_data[$lang]->name }}</td>
-                        <td>{{ $fishes[$i]->alias }}</td>
+                        <td>{{ mb_substr($fishes[$i]->fish_data[$lang]->name,0 ,15) }}</td>
+                        <td>{{ mb_substr($fishes[$i]->alias,0 ,15) }}</td>
                         <td>{{ $fishes[$i]->category_id }}</td>
-                        <td>{{ $fishes[$i]->fish_data[$lang]->short_description }}</td>
-                        <td>{{ mb_substr($fishes[$i]->fish_data[$lang]->description, 0, 45) }}</td>
-                        <td>{{ $fishes[$i]->created_at }}</td>
-                        <td>{{ $fishes[$i]->updated_at }}</td>
+                        <td>{{ mb_substr($fishes[$i]->fish_data[$lang]->short_description, 0, 32) }}</td>
+                        <td>{{ mb_substr($fishes[$i]->fish_data[$lang]->description, 0, 32) }}</td>
+                        <td>{{ mb_substr($fishes[$i]->created_at, 0, 10) }}</td>
+                        <td>{{ mb_substr($fishes[$i]->updated_at, 0, 10) }}</td>
+                        <td data-token="{{ csrf_token() }}"
+                            data-current_lang="{{ $lang }}"
+                            data-model="{{ $model }}"
+                            data-id="{{ $fishes[$i]->id }}"
+                            data-page="{{ $currentPage }}"
+                            >
+                            <button title="Редактировать" class="badge badge-pill badge-primary"><span class="oi oi-pencil"></span></button>
+
+                            @if($fishes[$i]->enabled)
+                                <button title="Отключить" class="badge badge-pill badge-primary" id="enable-button"><span class="oi oi-power-standby"></span></button>
+                            @else
+                                <button title="Включить" class="badge badge-pill badge-secondary" id="enable-button"><span class="oi oi-power-standby"></span></button>
+                            @endif
+
+                            <button title="Удалить" class="badge badge-pill badge-primary"><span
+                                    class="oi oi-trash"></span></button>
+
+                        </td>
                     </tr>
                     @else
                         <tr>
+                            <td>----</td>
                             <td>----</td>
                             <td>----</td>
                             <td>----</td>
@@ -146,6 +166,29 @@
                 }
             });
 
+        });
+
+        $('#myTable').on('click','#enable-button', function(){
+
+            $.ajax({
+                method: 'post',
+                url: 'table_ajax',
+                dataType: 'json',
+                data: {
+                    _token: $(this).parent().data('token'),
+                    id: $(this).parent().data('id'),
+                    currentLang: $(this).parent().data('current_lang'),
+                    model: $(this).parent().data('model'),
+                    page: $(this).parent().data('page'),
+                    action: 'action'
+                },
+                success: function (data) {
+                    $('#changed_div').html(data.response_table);
+                },
+                error: function (errorThrown) {
+                    console.log(errorThrown);
+                }
+            });
         });
 
         $('#paginator_nav_menu').on('click', '#paginate_navigator', function () {

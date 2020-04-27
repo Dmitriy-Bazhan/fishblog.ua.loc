@@ -16,7 +16,10 @@ class CreateFishTable extends Migration
         Schema::create('fish', function (Blueprint $table) {
             $table->increments('id');
             $table->string('alias');
+            $table->boolean('enabled')->default(true);
             $table->integer('category_id');
+            $table->integer('views')->default(0);
+            $table->string('photo')->default('none');
             $table->timestamps();
         });
     }

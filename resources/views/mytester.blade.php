@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.admin_layout')
 
 @section('content')
     <div id="first">

@@ -107,6 +107,8 @@
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
+      <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZXaOM5RXcmdn3lxiCMSfCfK4qI" />
@@ -119,16 +121,19 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\js" />
-      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\css" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\app\Http\Controllers\Admin" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public" />
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\js" />
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\css\stole" />
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\css" />
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\bootstrap" />
     </key>
   </component>
   <component name="RunManager">
@@ -159,7 +164,21 @@
       <workItem from="1586427222112" duration="6908000" />
       <workItem from="1586584528901" duration="11880000" />
       <workItem from="1586604704076" duration="20860000" />
-      <workItem from="1586638788115" duration="5717000" />
+      <workItem from="1586638788115" duration="6159000" />
+      <workItem from="1586771115566" duration="9293000" />
+      <workItem from="1586884057027" duration="7597000" />
+      <workItem from="1586891706091" duration="53000" />
+      <workItem from="1586891850559" duration="503000" />
+      <workItem from="1586931839846" duration="3914000" />
+      <workItem from="1586945925017" duration="23000" />
+      <workItem from="1587146238122" duration="101000" />
+      <workItem from="1587540062611" duration="16844000" />
+      <workItem from="1587567030979" duration="48000" />
+      <workItem from="1587637598657" duration="75000" />
+      <workItem from="1587722683681" duration="5902000" />
+      <workItem from="1587888095742" duration="21226000" />
+      <workItem from="1587969845153" duration="233000" />
+      <workItem from="1587974485693" duration="26185000" />
     </task>
     <servers />
   </component>
@@ -167,10 +186,26 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1586642103709">
+    <state x="552" y="179" key="#Notifications" timestamp="1586891645583">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586642103709" />
+    <state x="552" y="179" key="#Notifications/0.0.1920.1040@0.0.1920.1040" timestamp="1586891645583" />
+    <state x="682" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587997805367">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="682" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587997805367" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587997270080">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587997270080" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586943556233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586943556233" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1587970066056">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587970066056" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1586360472495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

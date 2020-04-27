@@ -18,8 +18,9 @@ class Mytester extends Controller
 
         $show = $model::all();
 
-        dd($show);
+        dd(bcrypt('123'));
 
+        dd($show);
 
         $data = [];
 

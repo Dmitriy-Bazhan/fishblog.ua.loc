@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckAccess;
+use App\Http\Middleware\Only_site_admin;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,21 +16,44 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+
+Route::group([
+    'prefix' => get_prefix()
+],
+    function () {
+        Route::get('/check/{id}', 'HomepageController@check');
+        Route::get('/', 'HomepageController@homepage');
+        Route::get('/fishes', 'FishController@index');
+        Route::get('/lakes', 'LakeController@index');
+    });
+
+Route::group([
+    'prefix' => 'admin',
+    'middleware' => ['auth', 'checkAccess']
+],
+    function () {
+    Route::get('/', 'Admin\AdminController@mainpage');
+    Route::get('/fish-table', 'Admin\AdminController@fishTable');
+    Route::get('/lake-table', 'Admin\AdminController@lakeTable');
+    Route::get('/lake-table/{id}', 'Admin\AdminController@lakeEdit');
+    Route::post('/table_ajax', 'Admin\AdminController@ajaxTable');
 });
 
-Route::get('admin', 'Admin\AdminController@mainpage')->middleware('auth');  //любой запрос на страницу админа идет через auth
-Route::get('fish-table', 'Admin\AdminController@fishTable')->middleware('auth');
-Route::get('lake-table', 'Admin\AdminController@lakeTable')->middleware('auth');
+//Admin for user table
+Route::get('admin/user_edit/{id}', 'Admin\AdminUserController@edit')->middleware('auth', 'Only_site_admin');
+Route::get('admin/user_destroy/{id}', 'Admin\AdminUserController@edit')->middleware('auth', 'Only_site_admin');
+Route::post('table_ajax', 'Admin\AdminController@ajaxTable')->middleware('auth');
 
-// Ajax Admin Site
-Route::post('table_ajax', 'Admin\AdminController@ajaxTable');
-
-
-Route::get('login','Auth\LoginController@indexAction')->name('login');
-Route::post('login','Auth\LoginController@login')->name('login_form');
-
+Route::get('auth/login', 'Auth\LoginController@indexAction');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\LoginController@getLogout');
+Route::post('auth/logout', 'Auth\LoginController@getLogout');
 
 Route::get('tester', 'Mytester@testerMethod');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

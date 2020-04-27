@@ -19,9 +19,11 @@
         </ul>
     </div>
 
-    <div class="row" style="width: 100%; padding: 10px;">
+
+
+    <div class="row" style="padding: 10px;">
         <div class="col-sm-12">
-            <table id="myTable" class="table table-striped" style="border: black 2px solid;margin: 10px;"
+            <table id="myTable" class="table table-striped"
                    rules="all">
                 <thead>
                 <tr id="order_table"
@@ -30,13 +32,14 @@
                     data-model="{{ $model }}"
                 >
                     <th id="id" data-attribute="id">id</th>
-                    <th id="name" data-attribute="name">name</th>
-                    <th id="alias" data-attribute="alias">alias</th>
-                    <th id="location" data-attribute="location">location</th>
-                    <th>short-description</th>
-                    <th>description</th>
+                    <th id="name" data-attribute="name">Название</th>
+                    <th id="alias" data-attribute="alias">Псевдоним</th>
+                    <th id="location" data-attribute="location">Локация</th>
+                    <th id="short_description">Короткое описание</th>
+                    <th id="full_description">Полное описание</th>
                     <th id="created_at" data-attribute="created_at">Дата создания</th>
                     <th id="updated_at" data-attribute="updated_at">Дата редактирования</th>
+                    <th id="actions">Действие</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -44,16 +47,35 @@
                     @if(isset($lakes[$i]))
                     <tr>
                         <td>{{ $lakes[$i]->id }}</td>
-                        <td>{{ $lakes[$i]->lake_data[$lang]->name }}</td>
-                        <td>{{ $lakes[$i]->alias }}</td>
+                        <td>{{ mb_substr($lakes[$i]->lake_data[$lang]->name,0 ,15) }}</td>
+                        <td>{{ mb_substr($lakes[$i]->alias, 0, 15) }}</td>
                         <td>{{ $lakes[$i]->location_id }}</td>
-                        <td>{{ $lakes[$i]->lake_data[$lang]->short_description }}</td>
-                        <td>{{ mb_substr($lakes[$i]->lake_data[$lang]->description, 0, 45) }}</td>
-                        <td>{{ $lakes[$i]->created_at }}</td>
-                        <td>{{ $lakes[$i]->updated_at }}</td>
+                        <td>{{ mb_substr($lakes[$i]->lake_data[$lang]->short_description, 0, 32) }}</td>
+                        <td>{{ mb_substr($lakes[$i]->lake_data[$lang]->description, 0, 32) }}</td>
+                        <td>{{ mb_substr($lakes[$i]->created_at, 0, 10) }}</td>
+                        <td>{{ mb_substr($lakes[$i]->updated_at, 0 ,10) }}</td>
+                        <td data-token="{{ csrf_token() }}"
+                            data-current_lang="{{ $lang }}"
+                            data-model="{{ $model }}"
+                            data-id="{{ $lakes[$i]->id }}"
+                            data-page="{{ $currentPage }}"
+                            >
+                            <a href="{{ url('admin/lake-table/id='. $lakes[$i]->id ) }}"><button title="Редактировать" class="badge badge-pill badge-primary"><span class="oi oi-pencil"></span></button></a>
+
+                            @if($lakes[$i]->enabled)
+                                <button title="Отключить" class="badge badge-pill badge-primary" id="enable-button"><span class="oi oi-power-standby"></span></button>
+                            @else
+                                <button title="Включить" class="badge badge-pill badge-secondary" id="enable-button"><span class="oi oi-power-standby"></span></button>
+                            @endif
+
+                            <button title="Удалить" class="badge badge-pill badge-primary"><span
+                                    class="oi oi-trash"></span></button>
+
+                        </td>
                     </tr>
                     @else
                         <tr>
+                            <td>----</td>
                             <td>----</td>
                             <td>----</td>
                             <td>----</td>
@@ -94,6 +116,16 @@
         </div>
     </div>
 
+    @if(isset($see))
+        <p>{{ $see }}</p>
+        @endif
+
+{{--    @if(isset($lang))--}}
+{{--        <p>{{ $lang }}</p>--}}
+{{--    @endif--}}
+
+
+
     <script>
         $('#language_change').on('click', 'button', function () {
             $.ajax({
@@ -116,7 +148,6 @@
         });
 
         $('#order_table').on('click', 'th', function () {
-
             var tableHeadSector = $(this).attr('data-attribute');
             $.ajax({
                 method: 'post',
@@ -144,6 +175,29 @@
                 }
             });
 
+        });
+
+        $('#myTable').on('click','#enable-button', function(){
+
+            $.ajax({
+                method: 'post',
+                url: 'table_ajax',
+                dataType: 'json',
+                data: {
+                    _token: $(this).parent().data('token'),
+                    id: $(this).parent().data('id'),
+                    currentLang: $(this).parent().data('current_lang'),
+                    model: $(this).parent().data('model'),
+                    page: $(this).parent().data('page'),
+                    action: 'action'
+                },
+                success: function (data) {
+                    $('#changed_div').html(data.response_table);
+                },
+                error: function (errorThrown) {
+                    console.log(errorThrown);
+                }
+            });
         });
 
         $('#paginator_nav_menu').on('click', '#paginate_navigator', function () {

@@ -36,7 +36,7 @@ class AdminController extends Controller
 
         $pages = (int)ceil(Fish::all()->count() / 10);
         session()->put('pages', $pages);
-        $fishes = Fish::take(10)->get();
+        $fishes = Fish::take(10)->withData()->get();
 
         $data = [
             'fishes' => $fishes,
@@ -56,7 +56,7 @@ class AdminController extends Controller
 
         $pages = (int)ceil(Lake::all()->count() / 10);
         session()->put('pages', $pages);
-        $lakes = Lake::take(10)->get();
+        $lakes = Lake::take(10)->withData()->get();
 
         $data = [
             'lakes' => $lakes,
@@ -82,96 +82,109 @@ class AdminController extends Controller
         $currentPage = !is_null($request->post('page')) ? $request->post('page') : 1;
         $currentLang = !is_null($request->post('currentLang')) ? $request->post('currentLang') : $request->post('lang');
 
+        if($request->post('action') == 'action')
+        {
+            $checkEnabled = $model::where('id', $request->post('id'))->first()->enabled;
+            if($checkEnabled == 1)
+            {
+                $model::where('id', $request->post('id'))->update(['enabled' => 0]);
+            }elseif ($checkEnabled == 0)
+            {
+                $model::where('id', $request->post('id'))->update(['enabled' => 1]);
+            }
+        }
+
         switch (session('attribute')) {
             case 'id' :
-                $$nameVar = $model::orderBy('id', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('id', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'id-desc' :
-                $$nameVar = $model::orderBy('id', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('id', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'username' :
-                $$nameVar = $model::orderBy('name', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('name', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'username-desc' :
-                $$nameVar = $model::orderBy('name', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('name', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'name' :
-                $$nameVar = $model::withData()->orderBy('alias', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::withData()->orderBy('alias', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'name-desc' :
-                $$nameVar = $model::withData()->orderBy('alias', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::withData()->orderBy('alias', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'alias' :
-                $$nameVar = $model::withData()->orderBy('alias', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::withData()->orderBy('alias', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'alias-desc' :
-                $$nameVar = $model::withData()->orderBy('alias', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::withData()->orderBy('alias', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'email' :
-                $$nameVar = $model::orderBy('email', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('email', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'email-desc' :
-                $$nameVar = $model::orderBy('email', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('email', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'category' :
-                $$nameVar = $model::orderBy('category_id', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('category_id', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'category-desc' :
-                $$nameVar = $model::orderBy('category_id', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('category_id', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'created_at' :
-                $$nameVar = $model::orderBy('created_at', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('created_at', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'created_at-desc' :
-                $$nameVar = $model::orderBy('created_at', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('created_at', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'updated_at' :
-                $$nameVar = $model::orderBy('updated_at', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('updated_at', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'updated_at-desc' :
-                $$nameVar = $model::orderBy('updated_at', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::orderBy('updated_at', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'location' :
-                $$nameVar = $model::withData()->orderBy('location_id', 'desc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::withData()->orderBy('location_id', 'desc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
 
             case 'location-desc' :
-                $$nameVar = $model::withData()->orderBy('location_id', 'asc')->skip(10 * ($currentPage - 1))->take(10)->get();
+                $$nameVar = $model::withData()->orderBy('location_id', 'asc')->withData()->skip(10 * ($currentPage - 1))->take(10)->get();
                 $lang = $currentLang;
                 break;
+
 
             default:
                 break;
@@ -197,6 +210,11 @@ class AdminController extends Controller
         return response()->json([
             'response_table' => view('admin.sections.section-' . $sections . '-table', $data)->render()
         ], 200);
+    }
+
+    public function lakeEdit($id)
+    {
+        dd('DDDDD');
     }
 }
 
