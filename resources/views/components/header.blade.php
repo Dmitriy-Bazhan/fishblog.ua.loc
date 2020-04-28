@@ -1,8 +1,8 @@
-<div id="app">
+<div class="head fixed-top">
     <nav class="navbar navbar-expand-md navbar-light bg-secondary shadow-sm">
         <div class="container">
 
-            <a class="navbar-brand" href="{{ url_with_locale('/') }}">@lang('site.header.name')</a>
+
 
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle navbar-brand" type="button" id="dropdownMenuButton"
@@ -10,41 +10,57 @@
                     @lang('site.aside.nav_panel_name')
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="background-color: #6C757D">
-                    <a class="dropdown-item navbar-brand" href="{{ url_with_locale('/fishes') }}">Рыбы</a>
-                    <a class="dropdown-item navbar-brand" href="{{ url_with_locale('/lakes') }}">Озера</a>
-                    <a class="dropdown-item navbar-brand" href="#">Локации</a>
-                    <a class="dropdown-item navbar-brand" href="#">Мой профиль</a>
-                    <a class="dropdown-item navbar-brand" href="#">Мой профиль</a>
+                    <a class="dropdown-item navbar-brand"
+                       href="{{ url_with_locale('/fishes') }}">@lang('site.aside.fishes')</a>
+                    <a class="dropdown-item navbar-brand"
+                       href="{{ url_with_locale('/lakes') }}">@lang('site.aside.lakes')</a>
+                    <a class="dropdown-item navbar-brand" href="#">@lang('site.aside.locations')</a>
+                    <a class="dropdown-item navbar-brand" href="#">@lang('site.aside.blog')</a>
+                    <a class="dropdown-item navbar-brand" href="#">@lang('site.aside.interesting')</a>
+                    <a class="dropdown-item navbar-brand" href="#">@lang('site.aside.useful_links')</a>
+                    <a class="dropdown-item navbar-brand" href="#">@lang('site.aside.categories')</a>
+                    @if(auth()->user())
+                        <a class="dropdown-item navbar-brand" href="#">@lang('site.aside.my_profile')</a>
+                    @endif
                 </div>
             </div>
+
+            <a class="navbar-brand" href="{{ url_with_locale('/') }}">@lang('site.header.name')</a>
 
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                     aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <!-- Left Side Of Navbar -->
                 <ul class="navbar-nav mr-auto">
-
+                    <li class="nav-item">
+                        <span>@lang('site.header.' . $title)</span>
+                    </li>
                 </ul>
+
+
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
                     @guest
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('login') }}">@lang('site.header.login')</a>
                         </li>
                         @if (Route::has('register'))
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                <a class="nav-link" href="{{ route('register') }}">@lang('site.header.register')</a>
                             </li>
                         @endif
                     @else
                         <li class="nav-item dropdown">
-                            <button id="navbarDropdown" class="btn btn-secondary dropdown-toggle navbar-brand" role="button"
-                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <button id="navbarDropdown" class="btn btn-secondary dropdown-toggle navbar-brand"
+                                    role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 <span class="navbar-brand">@lang('site.header.you_enter')</span>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </button>
@@ -64,10 +80,10 @@
                             </div>
                         </li>
                     @endguest
+
                 </ul>
             </div>
         </div>
-        <a class="navbar-brand" href="{{ url_with_locale('/check') . '/5' }}">Check</a>
 
         @if(auth()->user())
             <a class="navbar-brand" href="/admin">Admin</a>

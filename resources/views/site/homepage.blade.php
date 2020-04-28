@@ -5,17 +5,17 @@
 
     @if(isset($popular_fishes))
 
-        <h2>Популярный рыбы</h2>
+        <h2 style="margin-top: 3%">@lang('site.homepage.popular_fishes')</h2>
 
         <div class="container-fluid">
             <div class="row justify-content-md-center">
 
                 @foreach($popular_fishes as $fish)
 
-                    <div class="col-3" style="background-color: lightgrey; margin: 5px;">
+                    <div class="col-3" style="background-color: lightgrey; margin: 5px; padding: 5px; ">
                         <p>{{ $fish->fish_data[lang_number()]->name }}</p>
 
-                        <img src="{{ asset('images/logo.jpg') }}"/>
+                        <img src="{{ asset('images/logo.jpg') }}" style="width: 100%;"/>
 
                         <p>{{ $fish->fish_data[lang_number()]->short_description }}</p>
                     </div>
@@ -29,7 +29,7 @@
 
     @if(isset($popular_lakes))
 
-        <h2>Популярный водоемы</h2>
+        <h2>@lang('site.homepage.popular_lakes')</h2>
 
         <div class="container-fluid">
             <div class="row justify-content-md-center">
@@ -37,10 +37,10 @@
 
                 @foreach($popular_lakes as $lake)
 
-                    <div class="col-3" style="background-color: lightgrey; margin: 5px;">
+                    <div class="col-3" style="background-color: lightgrey; margin: 5px; padding: 5px; ">
                         <p>{{ $lake->lake_data[lang_number()]->name }}</p>
 
-                        <img src="{{ asset('images/logo.jpg') }}"/>
+                        <img src="{{ asset('images/lake_logo.jpg') }}" style="width: 100%;"/>
 
                         <p>{{ $lake->lake_data[lang_number()]->short_description }}</p>
                     </div>
@@ -52,7 +52,7 @@
 
     @endif
 
-    <h2>Карта</h2>
+    <h2>@lang('site.homepage.map')</h2>
 
     <div class="container-fluid">
         <div class="row justify-content-md-center">

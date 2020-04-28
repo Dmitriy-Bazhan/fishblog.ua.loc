@@ -11,16 +11,11 @@ class HomepageController extends Controller
     public function homepage()
     {
         $data['path'] = take_path();
+        $data['title'] = 'homepage';
         $data['popular_fishes'] = Fish::withData()->orderBy('views', 'desc')->take(3)->get();
         $data['popular_lakes'] = Lake::withData()->orderBy('views', 'desc')->take(3)->get();
 
         return view('site.homepage', $data);
     }
 
-    public function check($id)
-    {
-        $data['path'] = take_path();
-
-        return view('site.check', $data);
-    }
 }

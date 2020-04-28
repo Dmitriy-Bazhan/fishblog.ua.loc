@@ -11,6 +11,7 @@ class LakeController extends Controller
     public function index()
     {
         $data['path'] = take_path();
+        $data['title'] = 'lakes';
         $data['lakes'] = Lake::withData()->get();
 
         return view ('site.lakes', $data);

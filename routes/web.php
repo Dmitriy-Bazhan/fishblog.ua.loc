@@ -23,7 +23,6 @@ Route::group([
     'prefix' => get_prefix()
 ],
     function () {
-        Route::get('/check/{id}', 'HomepageController@check');
         Route::get('/', 'HomepageController@homepage');
         Route::get('/fishes', 'FishController@index');
         Route::get('/lakes', 'LakeController@index');

@@ -10,6 +10,7 @@ class FishController extends Controller
     public function index()
     {
         $data['path'] = take_path();
+        $data['title'] = 'fishes';
         $data['fishes'] = Fish::withData()->get();
 
         return view ('site.fishes', $data);
