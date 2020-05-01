@@ -9,12 +9,21 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
     <style>
+        html {
+            height: 98%;
+        }
         body {
+            position: relative;
+            min-height: 100%;
+            margin:0;
             font-family: 'Nunito', sans-serif;
             font-size: 14pt;
             background-image: url({{ asset('images/Lake02.jpg') }});
             background-attachment: fixed;
             background-size: cover;
+        }
+        main {
+            padding-bottom: 75px;
         }
         h2{
             color: lightsteelblue;
@@ -37,13 +46,13 @@
 
 <div class="container-fluid" >
     <div class="row" style="width: 100%">
-{{--    @section('aside')--}}
-{{--        @include('components.aside')--}}
-{{--    @show--}}
+
 
     @yield('content')
     </div>
 </div>
+<main>
+</main>
 @section('footer')
     @include('components.footer')
 @show

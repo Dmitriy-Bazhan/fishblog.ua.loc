@@ -10,10 +10,10 @@ class LakeController extends Controller
 {
     public function index()
     {
-        $data['path'] = take_path();
-        $data['title'] = 'lakes';
-        $data['lakes'] = Lake::withData()->get();
+        $this->data = self::necessarily();
+        $this->data['title'] = 'lakes';
+        $this->data['lakes'] = Lake::withData()->paginate(9);
 
-        return view ('site.lakes', $data);
+        return view ('site.lakes', $this->data);
     }
 }

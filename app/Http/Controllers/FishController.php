@@ -9,11 +9,11 @@ class FishController extends Controller
 {
     public function index()
     {
-        $data['path'] = take_path();
-        $data['title'] = 'fishes';
-        $data['fishes'] = Fish::withData()->get();
+        $this->data = self::necessarily();
+        $this->data['title'] = 'fishes';
+        $this->data['fishes'] = Fish::withData()->paginate(9);
 
-        return view ('site.fishes', $data);
+        return view ('site.fishes',  $this->data);
     }
 
     /**

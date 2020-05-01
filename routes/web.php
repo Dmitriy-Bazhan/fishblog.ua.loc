@@ -36,7 +36,8 @@ Route::group([
     Route::get('/', 'Admin\AdminController@mainpage');
     Route::get('/fish-table', 'Admin\AdminController@fishTable');
     Route::get('/lake-table', 'Admin\AdminController@lakeTable');
-    Route::get('/lake-table/{id}', 'Admin\AdminController@lakeEdit');
+    Route::get('/lake-table/{id}', 'Admin\AdminLakeController@lakeEdit');
+    Route::post('/update_lake', 'Admin\AdminLakeController@lakeUpdate');
     Route::post('/table_ajax', 'Admin\AdminController@ajaxTable');
 });
 

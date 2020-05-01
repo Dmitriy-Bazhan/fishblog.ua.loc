@@ -4,7 +4,7 @@ return [
 
     'header' => [
         'name' => 'Fishing blog',
-        'you_enter' => 'You enter as:',
+        'you_enter' => 'You logged in as',
         'logout' => 'Logout',
         'login' => 'Login',
         'register' => 'Register',

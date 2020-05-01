@@ -212,10 +212,7 @@ class AdminController extends Controller
         ], 200);
     }
 
-    public function lakeEdit($id)
-    {
-        dd('DDDDD');
-    }
+
 }
 
 

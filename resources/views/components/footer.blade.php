@@ -1,5 +1,5 @@
 
-<footer class="footer-grad">
+<footer class="footer-grad footer">
     <div class="container footer">
         <div class="row">
             <div class="copyright--lg  col-sm-12">

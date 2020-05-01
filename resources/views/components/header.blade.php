@@ -3,7 +3,6 @@
         <div class="container">
 
 
-
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle navbar-brand" type="button" id="dropdownMenuButton"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,8 +82,10 @@
 
                 </ul>
             </div>
-        </div>
 
+
+
+        </div>
         @if(auth()->user())
             <a class="navbar-brand" href="/admin">Admin</a>
         @endif
@@ -112,6 +113,7 @@
                 </a>
             @endif
         </div>
+
 
     </nav>
 </div>

@@ -1,116 +1,14 @@
 footer {
-    position: relative;
+    position: absolute;
+    bottom: 0;
     width: 100%;
-    top:90%;
-    padding-top: 0px;
-    background-color: #ffffff;
-    flex: 0 0 auto;
-}
-
-.footer__element {
-    margin-bottom: 45px;
-}
-
-.footer-grad {
+    /* Высота footer по умолчанию */
+    height: 75px;
     background-color: #141e25;
-}
-
-.bgc-grad footer {
-    background-color: #141e25;
-}
-
-.bgc-grad footer .footer__element__title {
     color: #9d9d9d;
 }
-
-.footer__element__title {
-    display: block;
-    font-family: Proxima Nova Cn Rg, sans-serif;
-    font-size: 18px;
-    margin-bottom: 35px;
-}
-
-.footer-grad .footer__element__title {
-    color: #9d9d9d;
-}
-
-.footer__element li {
-    margin-bottom: 10px;
-}
-
-.footer__element--item {
-    font-family: Open Sans Regular, sans-serif;
-    font-size: 16px;
-    line-height: 1.875;
-    color: #656565;
-}
-
-.footer-grad .footer__element--item {
-    color: #656565;
-}
-
-.footer-grad .footer__element--item:hover {
-    color: #f5f5f5;
-}
-
-li.footer__element--item-tel {
-    font-family: Proxima Nova Cn Rg, sans-serif;
-    font-size: 20px;
-    line-height: 1.5;
-    margin-bottom: 10px;
-    color: white;
-}
-
-.bgc-grad .footer__element--item-tel {
-    color: #9d9d9d;
-}
-
-.footer-grad {
-    color: #9d9d9d;
-}
-
-.footer__element-phone {
-    font-family: Proxima Nova Cn Rg, sans-serif;
-    color: #ef6e20;
-    font-size: 24px;
-    line-height: 1.25;
-}
-
-.footer__element-phone:hover {
-    color: #ef6e20;
-    opacity: 0.8;
-
-}
-
-.fa-twitter, .fa-instagram, .fa-facebook-f {
-    color: #ee6e1f;
-}
-
-.footer__element i {
-    margin-right: 25px;
-}
-
-.copyright {
-    color: #9d9d9c;
-    border-top: 1px solid #ececec;
-    font-size: 12px;
-}
-
-.footer-grad .copyright {
-    color: #4c4c4c;
-    border-color: #31373b;
-}
-
-.bgc-grad .copyright {
-    color: #4c4c4c;
-    border-color: #31373b;
-}
-
 
 .copyright--lg {
     padding: 15px;
 }
 
-.footer_mb-vr {
-    display: none;
-}

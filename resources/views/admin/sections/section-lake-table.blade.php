@@ -60,7 +60,7 @@
                             data-id="{{ $lakes[$i]->id }}"
                             data-page="{{ $currentPage }}"
                             >
-                            <a href="{{ url('admin/lake-table/id='. $lakes[$i]->id ) }}"><button title="Редактировать" class="badge badge-pill badge-primary"><span class="oi oi-pencil"></span></button></a>
+                            <a href="{{ url('admin/lake-table/'. $lakes[$i]->id ) }}"><button title="Редактировать" class="badge badge-pill badge-primary"><span class="oi oi-pencil"></span></button></a>
 
                             @if($lakes[$i]->enabled)
                                 <button title="Отключить" class="badge badge-pill badge-primary" id="enable-button"><span class="oi oi-power-standby"></span></button>

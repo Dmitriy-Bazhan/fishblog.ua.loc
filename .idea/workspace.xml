@@ -109,6 +109,9 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
+      <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
+      <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
+      <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZXaOM5RXcmdn3lxiCMSfCfK4qI" />
@@ -179,7 +182,9 @@
       <workItem from="1587888095742" duration="21226000" />
       <workItem from="1587969845153" duration="233000" />
       <workItem from="1587974485693" duration="26626000" />
-      <workItem from="1588048596503" duration="7593000" />
+      <workItem from="1588048596503" duration="17258000" />
+      <workItem from="1588086198333" duration="6842000" />
+      <workItem from="1588326374076" duration="1144000" />
     </task>
     <servers />
   </component>
@@ -195,18 +200,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587997805367" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587997270080">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588067431548">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587997270080" />
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588067431548" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586943556233">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586943556233" />
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588048597204">
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588326387580">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588048597204" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588326387580" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1586360472495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
