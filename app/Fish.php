@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Fish extends Model
 {
+
     public function lakes()
     {
         return $this->belongsToMany('App\Lake','fish_lakes','fish_id','lake_id');

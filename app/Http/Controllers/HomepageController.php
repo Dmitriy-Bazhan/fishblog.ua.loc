@@ -10,9 +10,6 @@ class HomepageController extends Controller
 {
     public function homepage()
     {
-        
-
-
         $this->data = self::necessarily();
         $this->data['title'] = 'homepage';
         $this->data['popular_fishes'] = Fish::withData()->orderBy('views', 'desc')->take(3)->get();

@@ -13,7 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+
     }
 
     /**
@@ -21,12 +21,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
     public function boot()
     {
-//        DB::listen(function ($query) {
-//            $query->sql;
-//            // $query->bindings
-//            // $query->time
-//        });
+
+
     }
 }

@@ -90,6 +90,19 @@
             <a class="navbar-brand" href="/admin">Admin</a>
         @endif
 
+        <div class="list-item--4 ">
+            <form class="header-menu__form" id="life-search" action="{{ url_with_locale('/search') }}" method="post" autocomplete="off">
+                {{ csrf_field() }}
+                <button type="submit" class="btn btn-secondary">
+                    <i class="fas icon-search"></i>@lang('site.header.search')
+                </button>
+                <input type="text" id="input-search" class="btn btn-secondary active" name="search_value"
+                       value="{{ isset($search_value) ? $search_value : '' }}" minlength="3"
+                       required>
+
+            </form>
+        </div>
+
         <div class="container col-sm-1">
             @if(app()->getLocale() == 'ua')
                 <button class="btn btn-secondary active">UA</button>
@@ -113,6 +126,7 @@
                 </a>
             @endif
         </div>
+
 
 
     </nav>

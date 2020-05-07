@@ -192,3 +192,26 @@ if (!function_exists('lang_number')) {
         return $number;
     }
 }
+
+if (!function_exists('isSiteAvailible')) {
+
+    function isSiteAvailible($url)
+    {
+
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            return false;
+        }
+        $curlInit = curl_init($url);
+
+        curl_setopt($curlInit, CURLOPT_CONNECTTIMEOUT, 1);
+//        curl_setopt($curlInit, CURLOPT_HEADER, true);
+//        curl_setopt($curlInit, CURLOPT_NOBODY, true);
+        curl_setopt($curlInit, CURLOPT_RETURNTRANSFER, true);
+
+        $response = curl_exec($curlInit);
+
+        curl_close($curlInit);
+
+        return $response ? true : false;
+    }
+}

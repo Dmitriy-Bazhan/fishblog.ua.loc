@@ -11,6 +11,7 @@ return [
         'homepage' => '',
         'fishes' => 'Fishes',
         'lakes' => 'Ponds',
+        'search' => 'Search',
     ],
     'aside' =>[
         'nav_panel_name' => 'Map of site',

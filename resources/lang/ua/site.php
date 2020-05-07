@@ -11,6 +11,7 @@ return [
         'homepage' => '',
         'fishes' => 'Риби',
         'lakes' => 'Водойми',
+        'search' => 'Пошук',
     ],
     'aside' =>[
         'nav_panel_name' => 'Карта сайту',

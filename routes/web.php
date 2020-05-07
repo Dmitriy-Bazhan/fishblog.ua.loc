@@ -16,7 +16,7 @@ use App\Http\Middleware\Only_site_admin;
 |
 */
 
-
+Route::get('buildindex', 'SearchController@buildAllIndex');
 
 
 Route::group([
@@ -26,6 +26,8 @@ Route::group([
         Route::get('/', 'HomepageController@homepage');
         Route::get('/fishes', 'FishController@index');
         Route::get('/lakes', 'LakeController@index');
+        Route::get('/search', 'SearchController@show');
+        Route::post('/search', 'SearchController@searchQuery');
     });
 
 Route::group([
@@ -39,6 +41,8 @@ Route::group([
     Route::get('/lake-table/{id}', 'Admin\AdminLakeController@lakeEdit');
     Route::post('/update_lake', 'Admin\AdminLakeController@lakeUpdate');
     Route::post('/table_ajax', 'Admin\AdminController@ajaxTable');
+    Route::get('new_fish', 'Admin\AdminFishController@create')->name('new-fish');
+    Route::post('create_new_fish', 'Admin\AdminFishController@create_new_fish')->name('create_new_fish');
 });
 
 //Admin for user table

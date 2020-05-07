@@ -112,6 +112,10 @@
       <path value="$PROJECT_DIR$/vendor/jaybizzle/crawler-detect" />
       <path value="$PROJECT_DIR$/vendor/mobiledetect/mobiledetectlib" />
       <path value="$PROJECT_DIR$/vendor/jenssegers/agent" />
+      <path value="$PROJECT_DIR$/vendor/ezimuel/guzzlestreams" />
+      <path value="$PROJECT_DIR$/vendor/ezimuel/ringphp" />
+      <path value="$PROJECT_DIR$/vendor/react/promise" />
+      <path value="$PROJECT_DIR$/vendor/elasticsearch/elasticsearch" />
     </include_path>
   </component>
   <component name="ProjectId" id="1ZXaOM5RXcmdn3lxiCMSfCfK4qI" />
@@ -124,19 +128,21 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../elastic.loc" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\app\Articles" />
       <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\app\Http\Controllers\Admin" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\app\Console" />
+      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\app" />
       <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public" />
       <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\js" />
       <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\css\stole" />
-      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\public\css" />
-      <recent name="C:\Users\User\Downloads\OSPanel\domains\fishblog.ua.loc\bootstrap" />
     </key>
   </component>
   <component name="RunManager">
@@ -184,7 +190,15 @@
       <workItem from="1587974485693" duration="26626000" />
       <workItem from="1588048596503" duration="17258000" />
       <workItem from="1588086198333" duration="6842000" />
-      <workItem from="1588326374076" duration="1144000" />
+      <workItem from="1588326374076" duration="2801000" />
+      <workItem from="1588402866599" duration="1795000" />
+      <workItem from="1588535546676" duration="604000" />
+      <workItem from="1588538393781" duration="17000" />
+      <workItem from="1588743436133" duration="32104000" />
+      <workItem from="1588831341749" duration="997000" />
+      <workItem from="1588832825679" duration="24000" />
+      <workItem from="1588835731248" duration="341000" />
+      <workItem from="1588836912075" duration="30783000" />
     </task>
     <servers />
   </component>
@@ -200,25 +214,29 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="682" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1587997805367" />
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588067431548">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1588843213357">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588067431548" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1586943556233">
+    <state x="690" y="275" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588843213357" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1588832846984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1586943556233" />
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588326387580">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1588832846984" />
+    <state x="461" y="154" key="SettingsEditor" timestamp="1588867721064">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588326387580" />
+    <state x="461" y="154" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1588867721064" />
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1588831594065">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="655" y="344" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1588831594065" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1586360472495">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1586360472495" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1585237856504">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1588862079112">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585237856504" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1588862079112" />
   </component>
 </project>
